@@ -14,8 +14,10 @@
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>Example</AssemblyName>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0.3</TargetFrameworkVersion>
     <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <ProductVersion>12.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -54,13 +56,13 @@
     <Compile Include="Location\LocationProvider.cs" />
     <Compile Include="SamplePoidataFromNativeActivity.cs" />
     <Compile Include="Utils\GeoUtils.cs" />
-    <Compile Include="SamplePoidataFromNativeAndUrlListenerActivity.cs" />
     <Compile Include="SamplePoiDetailActivity.cs" />
-    <Compile Include="SamplePoidataFromNativeAndUrlListenerRefreshActivity.cs" />
     <Compile Include="Utils\Constants.cs" />
     <Compile Include="BasicArchitectActivity.cs" />
     <Compile Include="Utils\UrlLauncher\ARchitectUrlLauncherActivity.cs" />
     <Compile Include="Utils\UrlLauncher\ARchitectUrlLauncherCamActivity.cs" />
+    <Compile Include="SamplePoidataFromNativeAndUrlListenerScreenshotActivity.cs" />
+    <Compile Include="SamplePoidataFromNativeAndUrlListenerActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
