@@ -5,192 +5,121 @@ using MonoTouch.ObjCRuntime;
 using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using MonoTouch.CoreMotion;
+using MonoTouch.CoreLocation;
 
 namespace Wikitude.Architect
 {
-	[BaseType (typeof(UIView), Name="WTArchitectView", Delegates=new string[] { "WeakDelegate" }, Events=new Type[] { typeof(ArchitectViewDelegate) })]
-    interface ArchitectView
-    {
-        [Export ("initWithFrame:")]
-        IntPtr Constructor (RectangleF frame);
+	[BaseType(typeof(NSObject), Name="WTArchitectViewDelegate")]
+	[Model]
+	[Protocol]
+	public partial interface WTArchitectViewDelegate {
 
-		[Export ("initWithFrame:motionManager:augmentedRealityMode:")]
-		IntPtr Constructor (RectangleF frame, CMMotionManager motionManager, AugmentedRealityMode augmentedRealityMode);
+		[Export ("architectView:didFinishLoad:"), EventArgs("ArchitectViewFinishLoad")]
+		void DidFinishLoad (WTArchitectView architectView, NSUrl url);
 
-		[Export ("setLicenseKey:")]
-		void SetLicenseKey(string licenseKey);
+		[Export ("architectView:didFailLoadWithError:"), EventArgs ("ArchitectViewLoadFailed")]
+		void DidFailLoadWithError (WTArchitectView architectView, NSError error);
 
-		//[Deprecated("Use the constructor ctor(string key, CMMotionManager motionManager, AugmentedRealityMode augmentedRealityMode) instead!")]
-		//[Export("initializeWithKey:motionManager:")]
-		//void Initialize(string key, [NullAllowed]CMMotionManager motionManager);
+		[Export ("architectView:invokedURL:"), EventArgs ("ArchitectViewInvokedURL")]
+		void InvokedURL (WTArchitectView architectView, NSUrl url);
 
-		[Static, Export("isDeviceSupportedForAugmentedRealityMode:")]
-		bool IsDeviceSupported(Wikitude.Architect.AugmentedRealityMode supportedMode);
+		[Export ("architectView:didCaptureScreenWithContext:"), EventArgs("ArchitectViewCaptureScreen")]
+		void DidCaptureScreenWithContext (WTArchitectView architectView, NSDictionary context);
 
-        [Export("loadArchitectWorldFromUrl:")]
-        void LoadArchitectWorld(NSUrl architectWorldUrl);
+		[Export ("architectView:didFailCaptureScreenWithError:"), EventArgs("ArchitectViewFailCaptureScreen")]
+		void DidFailCaptureScreenWithError (WTArchitectView architectView, NSError error);	
+	}
 
-        [Export("callJavaScript:")]
-        void CallJavaScript(string javaScript);
 
-		[Export("injectLocationWithLatitude:longitude:altitude:accuracy:")]
-        void InjectLocation(float latitude, float longitude, float altitude, float accuracy);
+	[BaseType (typeof(UIView), Name="WTArchitectView", Delegates=new string[] { "WeakDelegate" }, Events=new Type[] { typeof(WTArchitectViewDelegate) })]
+	public partial interface WTArchitectView {
 
-		[Export("injectLocationWithLatitude:longitude:accuracy:")]
-		void InjectLocation(float latitude, float longitude, float accuracy);
+		[Field ("kWTScreenshotBundleDirectoryKey", "__Internal")]
+		NSString WTScreenshotBundleDirectoryKey { get; }
 
-        [Export("setUseInjectedLocation:")]
-        void SetUseInjectedLocation(bool useInjectedLocation);
+		[Field ("kWTScreenshotSaveModeKey", "__Internal")]
+		NSString WTScreenshotSaveModeKey { get; }
 
-        [Export("isUsingInjectedLocation")]
-		bool IsUsingInjectedLocation { get; }
-    
-        [Export("cullingDistance")]
-		float CullingDistance { get;set; }
+		[Field ("kWTScreenshotCaptureModeKey", "__Internal")]
+		NSString WTScreenshotCaptureModeKey { get; }
 
-       	[Export("versionNumber")]
-		string GetVersionNumber();
+		[Field ("kWTScreenshotImageKey", "__Internal")]
+		NSString WTScreenshotImageKey { get; }
 
-		[Static]
-		[Export("versionNumber")]
-		string VersionNumber { get; }
 
-        [Export("clearCache")]
-        void ClearCache();
+		[Export("delegate"), NullAllowed]
+		NSObject WeakDelegate { get; set; }
 
-		//[Export("captureScreenWithMode:usingSaveMode:saveOptions:context:")]
-		//void CaptureScreen(WTScreenshotSaveMode saveMode, WTScreenshotSaveOptions options, NSDictionary context);
-
-        [Export("setShouldRotate:toInterfaceOrientation:")]
-        void SetShouldRotate(bool shouldAutoRotate, UIInterfaceOrientation interfaceOrientation);
-
-        [Export("start")]
-        void Start();
-
-        [Export("stop")]
-        void Stop();
+		[Wrap("WeakDelegate")]
+		WTArchitectViewDelegate Delegate { get;set; }
 
 		[Export ("isRunning")]
 		bool IsRunning { get; }
 
-        [Export("motionManager")]
-        CMMotionManager MotionManager();
+		[Export ("desiredLocationAccuracy")]
+		Double DesiredLocationAccuracy { get; set; }
 
-        [Export("delegate"), NullAllowed]
-        NSObject WeakDelegate { get; set; }
-
-        [Wrap("WeakDelegate")]
-        ArchitectViewDelegate Delegate { get;set; }
+		[Export ("desiredDistanceFilter")]
+		Double DesiredDistanceFilter { get; set; }
 
 		[Export ("shouldWebViewRotate")]
 		bool ShouldWebViewRotate { get; set; }
 
+		[Static, Export ("isDeviceSupportedForAugmentedRealityMode:")]
+		bool IsDeviceSupportedForAugmentedRealityMode (WTAugmentedRealityMode supportedARMode);
+
+		[Static, Export ("versionNumber")]
+		string VersionNumber { get; }
+
+		[Export ("initWithFrame:motionManager:augmentedRealityMode:")]
+		IntPtr Constructor (RectangleF frame, [NullAllowed] CMMotionManager motionManagerOrNil, WTAugmentedRealityMode augmentedRealityMode);
+
+		[Export ("initializeWithKey:motionManager:")]
+		void InitializeWithKey (string key, CMMotionManager motionManager);
+
+		[Export ("setLicenseKey:")]
+		void SetLicenseKey (string licenseKey);
+
+		[Export ("loadArchitectWorldFromUrl:")]
+		void LoadArchitectWorldFromUrl (NSUrl architectWorldUrl);
+
+		[Export ("callJavaScript:")]
+		void CallJavaScript (string javaScript);
+
+		[Export ("injectLocationWithLatitude:longitude:altitude:accuracy:")]
+		void InjectLocation (Double latitude, Double longitude, Double altitude, Double accuracy);
+
+		[Export ("injectLocationWithLatitude:longitude:accuracy:")]
+		void InjectLocation (Double latitude, Double longitude, Double accuracy);
+
+		[Export ("useInjectedLocation")]
+		bool UseInjectedLocation { set; }
+
+		[Export ("isUsingInjectedLocation")]
+		bool IsUsingInjectedLocation { get; }
+
+		[Export ("cullingDistance")]
+		float CullingDistance { get; set; }
+
+		[Export ("clearCache")]
+		void ClearCache ();
+
+		[Export ("setShouldRotate:toInterfaceOrientation:")]
+		void SetShouldRotateToInterfaceOrientation (bool shouldAutoRotate, UIInterfaceOrientation interfaceOrientation);
+
 		[Export ("isRotatingToInterfaceOrientation")]
 		bool IsRotatingToInterfaceOrientation { get; }
-    }
 
-    [BaseType(typeof(NSObject), Name="WTArchitectViewDelegate")]
-    [Model]
-	[Protocol]
-    interface ArchitectViewDelegate
-    {
-		[Export("architectView:invokedURL:"), EventArgs ("ArchitectViewInvokedURL")]
-		void InvokedUrl(ArchitectView architectView, NSUrl url);
+		[Export ("stop")]
+		void Stop ();
 
-		[Export ("architectView:didFailLoadWithError:"), EventArgs ("ArchitectViewLoadFailed")]
-		void DidFailLoadWithError (ArchitectView architectView, NSError error);
+		[Export ("start")]
+		void Start ();
 
-		[Export ("architectView:didCaptureScreenWithContext:"), EventArgs("ArchitectViewCaptureScreen")]
-		void DidCaptureScreen (ArchitectView architectView, NSDictionary context);
+		[Export ("motionManager")]
+		CMMotionManager MotionManager { get; }
 
-		[Export ("architectView:didFailCaptureScreenWithError:"), EventArgs("ArchitectViewFailCaptureScreen")]
-		void DidFailCaptureScreen (ArchitectView architectView, NSError error);
-
-    }
-   
+		[Export ("captureScreenWithMode:usingSaveMode:saveOptions:context:")]
+		void CaptureScreenWithMode (WTScreenshotCaptureMode captureMode, WTScreenshotSaveMode saveMode, WTScreenshotSaveOptions options, NSDictionary context);
+	}
 }
-
-
-
-
-//-------------------------------------------------------------------
-//Old version
-//-------------------------------------------------------------------
-
-//using System;
-//using System.Drawing;
-//
-//using MonoTouch.ObjCRuntime;
-//using MonoTouch.Foundation;
-//using MonoTouch.UIKit;
-//using MonoTouch.CoreMotion;
-//
-//namespace Wikitude.Architect
-//{
-//	[BaseType (typeof(UIView), Name="WTArchitectView", Delegates=new string[] { "WeakDelegate" }, Events=new Type[] { typeof(ArchitectViewDelegate) })]
-//	interface ArchitectView
-//	{
-//		[Export ("initWithFrame:")]
-//		IntPtr Constructor (RectangleF frame);
-//
-//		[Export("initializeWithKey:motionManager:")]
-//		void Initialize(string key, [NullAllowed]CMMotionManager motionManager);
-//
-//		[Static, Export("isDeviceSupported")]
-//		bool IsDeviceSupported();
-//
-//		[Export("loadArchitectWorldFromUrl:")]
-//		void LoadArchitectWorldFromUrl(string architectWorldUrl);
-//
-//		[Export("callJavaScript:")]
-//		void CallJavaScript(string javaScript);
-//
-//		[Export("injectLocationWithLatitude:longitude:altitude:accuracy:")]
-//		void InjectLocationWithLatitude(float latitude, float longitude, float altitude, float accuracy);
-//
-//		[Export("setUseInjectedLocation:")]
-//		void SetUseInjectedLocation(bool useInjectedLocation);
-//
-//		[Export("isUsingInjectedLocation")]
-//		bool IsUsingInjectedLocation();
-//
-//		[Export("setCullingDistance:")]
-//		void SetCullingDistance(float cullingDistance);
-//
-//		[Export("cullingDistance")]
-//		float CullingDistance();
-//
-//		[Export("versionNumber")]
-//		string VersionNumber();
-//
-//		[Export("clearCache")]
-//		void ClearCache();
-//
-//		[Export("setShouldRotate:toInterfaceOrientation:")]
-//		void SetShouldRotate(bool shouldAutoRotate, UIInterfaceOrientation interfaceOrientation);
-//
-//		[Export("start")]
-//		void Start();
-//
-//		[Export("stop")]
-//		void Stop();
-//
-//		[Export("motionManager")]
-//		CMMotionManager MotionManager();
-//
-//		[Export("delegate"), NullAllowed]
-//		NSObject WeakDelegate { get; set; }
-//
-//		[Wrap("WeakDelegate")]
-//		ArchitectViewDelegate Delegate { get;set; }
-//	}
-//
-//	[BaseType(typeof(NSObject), Name="WTArchitectViewDelegate")]
-//	[Model]
-//	interface ArchitectViewDelegate
-//	{
-//		[Export("urlWasInvoked:")]
-//		void UrlWasInvoked(string url);
-//	}
-//
-//}
