@@ -136,7 +136,7 @@ namespace Com.Wikitude.Samples
 				int lastCategoryId = -1;
 				foreach (var asset in assetsIWant) 
 				{
-					if (!asset.Contains("_"))
+					if (asset.Split('_').Length != 4)
 						continue;
 
 					SampleMeta sampleMeta = new SampleMeta(asset);
