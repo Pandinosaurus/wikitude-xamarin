@@ -12,8 +12,6 @@
 	<attr path="/api/package[@name='com.wikitude.tools.location']" name="managedName">Wikitude.Tools.Location</attr>
 	<attr path="/api/package[@name='com.wikitude.tools.services']" name="managedName">Wikitude.Tools.Services</attr>
 
-  
-	
   	<!-- Don't need any of this directly -->
 	<remove-node path="/api/package[@name='org.jsoup']" />
 	<remove-node path="/api/package[@name='org.jsoup.parser']" />
@@ -21,13 +19,13 @@
 	<remove-node path="/api/package[@name='org.jsoup.helper']" />
 	<remove-node path="/api/package[@name='org.jsoup.nodes']" />
 	<remove-node path="/api/package[@name='org.jsoup.safety']" />
-	<remove-node path="/api/package[@name='org.jsoup.select']" />	
+	<remove-node path="/api/package[@name='org.jsoup.select']" />
 
-	
+	<remove-node path="/api/package[@name='com.wikitude.architect.abstraction.video']" />	
+		
 	<remove-node path="/api/package[@name='com.wikitude.architect']/class[@name='ArchitectWebView']" />
 	<remove-node path="/api/package[@name='com.wikitude.architect']/class[@name='ArchitectWebView.AsyncArchitectLoader']" />
 	<remove-node path="/api/package[@name='com.wikitude.tools.image']/class[@name='ImageUtil']" />
 	<remove-node path="/api/package[@name='com.wikitude.tools.image']/class[@name='AsyncImageLoader']" />
-
 
 </metadata>

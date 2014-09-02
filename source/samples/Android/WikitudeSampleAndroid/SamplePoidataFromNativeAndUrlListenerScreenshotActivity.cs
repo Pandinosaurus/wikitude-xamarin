@@ -36,7 +36,7 @@ namespace Com.Wikitude.Samples
 
 			if (parsedUri.Host.Equals ("button", StringComparison.InvariantCultureIgnoreCase)
 					&& parsedUri.Query.Equals ("action=captureScreen", StringComparison.InvariantCultureIgnoreCase))
-				architectView.CaptureScreen(ArchitectView.CaptureScreenCallbackConsts.CaptureModeCamAndWebview, this);
+				architectView.CaptureScreen(ArchitectView.CaptureScreenCallback.CaptureModeCamAndWebview, this);
 			}
 			catch (Exception ex)
 			{
