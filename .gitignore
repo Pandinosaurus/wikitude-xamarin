@@ -40,4 +40,6 @@ profile
 DerivedData
 .idea/
 *.hmap
-*.xccheckout
+
+Wikitude.SDK.dll
+Wikitude.SDK.dll.mdb
