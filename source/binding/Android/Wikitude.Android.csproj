@@ -10,9 +10,10 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AssemblyName>Wikitude.SDK</AssemblyName>
-    <TargetFrameworkVersion>v2.3</TargetFrameworkVersion>
-    <ReleaseVersion>3.3.1</ReleaseVersion>
+    <TargetFrameworkVersion>v4.4</TargetFrameworkVersion>
+    <ReleaseVersion>4.0.1</ReleaseVersion>
     <SynchReleaseVersion>false</SynchReleaseVersion>
+    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -41,7 +42,6 @@
     <Reference Include="Mono.Android" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Additions\UrlInvokedListener.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

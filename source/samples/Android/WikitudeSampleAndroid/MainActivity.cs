@@ -54,7 +54,7 @@ namespace Com.Wikitude.Samples
 				switch (meta.CategoryId) 
 				{
 					case 4: 
-						if (meta.SampleId==3) 
+						if (meta.SampleId==1) 
 							activityClasses[i] = ("com.wikitude.samples.SamplePoidataFromNativeActivity");
 						else
 							activityClasses[i] = ("com.wikitude.samples.BasicArchitectActivity");
@@ -63,11 +63,11 @@ namespace Com.Wikitude.Samples
 					case 5:
 						switch (meta.SampleId) 
 						{
-							case 1:
+							case 5:
 								activityClasses[i] = ("com.wikitude.samples.SamplePoidataFromNativeAndUrlListenerActivity");
 								break;
-							case 4:
-								activityClasses[i] = ("com.wikitude.samples.SamplePoidataFromNativeAndUrlListenerRefreshActivity");
+							case 6:
+								activityClasses[i] = ("com.wikitude.samples.SamplePoidataFromNativeAndUrlListenerScreenshotActivity");
 								break;
 							default:
 								activityClasses[i] = ("com.wikitude.samples.SamplePoidataFromNativeActivity");
@@ -136,7 +136,7 @@ namespace Com.Wikitude.Samples
 				int lastCategoryId = -1;
 				foreach (var asset in assetsIWant) 
 				{
-					if (!asset.Contains("_"))
+					if (asset.Split('_').Length != 4)
 						continue;
 
 					SampleMeta sampleMeta = new SampleMeta(asset);
