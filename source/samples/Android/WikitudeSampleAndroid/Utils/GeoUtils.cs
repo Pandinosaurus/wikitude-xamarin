@@ -51,7 +51,7 @@ namespace Com.Wikitude.Samples
 			var newLat = lat + rnd.NextDouble () / 5 - 0.1;
 			var newLng = lon + rnd.NextDouble () / 5 - 0.1;
 
-			return new double[] { lat, lon };
+			return new double[] { newLat, newLng };
 		}
 	}
 }
