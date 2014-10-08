@@ -195,9 +195,7 @@
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_1_Poi%24At%24Location\jquery\images\icons-36-black.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_1_Poi%24At%24Location\jquery\images\icons-36-white.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_1_Poi%24At%24Location\js\poiatlocation.js" />
-    <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\.DS_Store" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\index.html" />
-    <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\assets\.DS_Store" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\assets\marker_idle.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\css\jquery-mobile-transparent-ui-overlay.css" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\jquery\jquery-1.9.1.min.js" />
@@ -211,9 +209,7 @@
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\jquery\images\icons-36-white.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\js\marker.js" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_2_Poi%24With%24Label\js\poiwithlabel.js" />
-    <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\.DS_Store" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\index.html" />
-    <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\assets\.DS_Store" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\assets\marker_idle.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\assets\marker_selected.png" />
     <AndroidAsset Include="Assets\samples\3_Point%24Of%24Interest_3_Multiple%24Pois\css\jquery-mobile-transparent-ui-overlay.css" />
