@@ -24,8 +24,18 @@ Please see this document for more information on how to add W to your app.
 ### Learn More
 You can learn more about Wikitude by visiting http://www.wikitude.com
 
+### Known Issues
+
+The issues listed below are likely issues of our implementation of the sample app and not the SDK or the bindings.
+
+* Clicking on the HTML Drawable in the sample `Image Recognition -> HTML Drawable` might lead to a stuck view.
+* Re-rendering certain 3D models might look distorted
+* While putting the app into the background while playing a video the app might resume in the wrong page
+
 
 ## License	
+The bindings are under Apache 2.0 license (see below), where the SDK itself follows a proprietary license scheme.
+
 
 ``` 
    Copyright 2014 Wikitude GmbH, http://www.wikitude.com
