@@ -1,11 +1,11 @@
 using System;
 using System.Drawing;
 
-using MonoTouch.ObjCRuntime;
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.CoreMotion;
-using MonoTouch.CoreLocation;
+using ObjCRuntime;
+using Foundation;
+using UIKit;
+using CoreMotion;
+using CoreLocation;
 
 namespace Wikitude.Architect
 {
@@ -72,7 +72,7 @@ namespace Wikitude.Architect
 		string VersionNumber { get; }
 
 		[Export ("initWithFrame:motionManager:augmentedRealityMode:")]
-		IntPtr Constructor (RectangleF frame, [NullAllowed] CMMotionManager motionManagerOrNil, WTAugmentedRealityMode augmentedRealityMode);
+		IntPtr Constructor (CoreGraphics.CGRect frame, [NullAllowed] CMMotionManager motionManagerOrNil, WTAugmentedRealityMode augmentedRealityMode);
 
 		[Export ("initializeWithKey:motionManager:")]
 		void InitializeWithKey (string key, CMMotionManager motionManager);

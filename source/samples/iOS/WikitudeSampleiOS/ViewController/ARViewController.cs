@@ -1,6 +1,6 @@
 ﻿using System;
-using MonoTouch.UIKit;
-using MonoTouch.Foundation;
+using UIKit;
+using Foundation;
 using MonoTouch.Dialog;
 using Wikitude.Architect;
 
@@ -36,7 +36,7 @@ namespace WikitudeSample
 				var absoluteWorldUrl = WorldOrUrl;
 				if (!IsUrl)
 					absoluteWorldUrl = NSBundle.MainBundle.BundleUrl.AbsoluteString + "ARchitectExamples/" + WorldOrUrl + "/index.html";
-
+				Console.WriteLine (absoluteWorldUrl);
 				var u = new NSUrl (absoluteWorldUrl);
 				arView.LoadArchitectWorldFromUrl (u);
 

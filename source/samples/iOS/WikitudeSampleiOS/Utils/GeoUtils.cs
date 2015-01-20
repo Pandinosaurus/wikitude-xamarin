@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Json;
-using MonoTouch.CoreLocation;
+using CoreLocation;
 
 namespace WikitudeSample
 {
