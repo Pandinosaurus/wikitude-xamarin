@@ -13,20 +13,18 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>MinimumOSVersion</key>
-	<string>6.0</string>
+	<string>7.0</string>
 	<key>CFBundleDisplayName</key>
 	<string>Xamarin Samples</string>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon</string>
-		<string>Icon@2x</string>
-		<string>Icon-60@2x</string>
-	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.wikitude.xamarinsamples</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Access to GPS information is needed to display POIs around your current location</string>
+	<key>XSAppIconAssets</key>
+	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
+	<key>CFBundleVersion</key>
+	<string>2.0</string>
 </dict>
 </plist>

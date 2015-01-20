@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Web;
 using System.Collections.Specialized;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 
 using Wikitude.Architect;
 

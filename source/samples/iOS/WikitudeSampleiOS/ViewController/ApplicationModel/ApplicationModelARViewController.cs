@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using System.Json;
-using MonoTouch.CoreLocation;
+using CoreLocation;
 using Wikitude.Architect;
 
 namespace WikitudeSample

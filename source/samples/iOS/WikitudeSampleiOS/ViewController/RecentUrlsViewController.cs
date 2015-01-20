@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 using MonoTouch.Dialog;
-using MonoTouch.UIKit;
+using UIKit;
 using System.IO;
 using System.Collections.Generic;
 

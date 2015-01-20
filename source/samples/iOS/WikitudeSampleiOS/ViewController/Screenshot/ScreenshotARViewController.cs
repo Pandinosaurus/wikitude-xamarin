@@ -1,8 +1,8 @@
 ﻿using System;
 
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
-using MonoTouch.Social;
+using Foundation;
+using UIKit;
+using Social;
 
 using Wikitude.Architect;
 
